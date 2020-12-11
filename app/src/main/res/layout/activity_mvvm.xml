@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="User"
-            type="com.test.myapplication.bean.User"/>
+            name="loginModel"
+            type="com.test.myapplication.bean.LoginViewModel"/>
     </data>
 
     <LinearLayout
@@ -15,12 +15,33 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="@{User.username}"
+            android:text="@{loginModel.user.username}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="@{User.password}"
+            android:text="@{loginModel.user.password}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <EditText
+
+            android:text="@={loginModel.user.username}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="name"/>
+
+        <EditText
+
+            android:text="@={loginModel.user.password}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="password"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="@{loginModel.loginClickListener}"
+            android:text="登录"
+            />
     </LinearLayout>
 </layout>

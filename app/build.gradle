@@ -1,13 +1,15 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.test.myapplication"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
@@ -17,15 +19,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures{
+        dataBinding=true
+    }
     dataBinding {
         enabled = true
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.+'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    implementation 'com.jakewharton:butterknife-compiler:8.4.0'
 }
