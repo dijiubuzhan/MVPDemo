@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.test.myapplication.bean.User;
 import com.test.myapplication.presenter.UserLoginPresenter;
+import androidx.databinding.ObservableField;
 
 public class MainActivity extends AppCompatActivity implements IUserLoginView {
     private EditText mEtUsername, mEtPassword;

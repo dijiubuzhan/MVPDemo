@@ -1,5 +1,7 @@
 package com.test.myapplication.biz;
 
+import androidx.databinding.ObservableField;
+
 import com.test.myapplication.bean.User;
 
 /**
@@ -19,8 +21,8 @@ public class UserBiz implements IUserBiz {
 
                 if (("wilsen".equals(username) && "123".equals(password))) {
                     User user=new User();
-                    user.setUsername(username);
-                    user.setPassword(password);
+                    user.setUsername(new ObservableField<String>(username));
+                    user.setPassword(new ObservableField<String>(password));
                     loginListener.loginSuccess(user);
                 }else {
                     loginListener.loginFailed();
