@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="listener"
+            type="com.test.myapplication.MvvmActivity.Listener"/>
         <variable
             name="user"
             type="com.test.myapplication.bean.User"/>
@@ -41,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:onClick="@{user.loginClickListener}"
+            android:onClick="@{()->listener.login()}"
             android:text="登录"
             />
     </LinearLayout>

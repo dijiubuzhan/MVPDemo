@@ -30,10 +30,4 @@ public class User {
         this.password = password;
     }
 
-    public View.OnClickListener loginClickListener =new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            LogUtil.d("name="+username.get()+",pwd="+password.get());
-        }
-    };
 }

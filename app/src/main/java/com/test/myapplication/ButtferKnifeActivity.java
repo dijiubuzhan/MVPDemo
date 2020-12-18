@@ -2,6 +2,7 @@ package com.test.myapplication;
 
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,9 +14,6 @@ import butterknife.ButterKnife;
 public class ButtferKnifeActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.txt1)
-    TextView m_Txt1;
-    @BindView(R.id.txt2)
     TextView m_Txt2;
     @BindView(R.id.btn1)
     Button m_Btn1;
@@ -27,6 +25,26 @@ public class ButtferKnifeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
+        m_Btn1=findViewById(R.id.btn1);
+        m_Btn2=findViewById(R.id.btn2);
+        m_Btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.container,MainFragment.newInstance())
+                                    .commit();
+            }
+        });
+        m_Btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container,SecondFragment.newInstance(null,null))
+                        .commit();
+            }
+        });
     }
+
+
 
 }

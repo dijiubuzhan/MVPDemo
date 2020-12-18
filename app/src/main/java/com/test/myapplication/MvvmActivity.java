@@ -21,12 +21,17 @@ public class MvvmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMvvmBinding binding= DataBindingUtil.setContentView(this,R.layout.activity_mvvm);
-        User user=new User();
+        user=new User();
         user.setUsername(new ObservableField<String>("wilson"));
         user.setPassword(new ObservableField<String>("123"));
         binding.setUser(user);
-
+        binding.setListener(new Listener());
     }
 
+    public class Listener {
+        public void login(){
+            LogUtil.d("name="+user.getPassword().get()+",pwd="+user.getUsername());
+        }
+    }
 
 }
