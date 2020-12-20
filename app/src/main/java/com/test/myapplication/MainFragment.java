@@ -49,8 +49,9 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-        // TODO: Use the ViewModel
-        mTxt.setText(mViewModel.getName().getValue());
+        mViewModel.getName().observe(this,(String s)->{
+            mTxt.setText(s);
+        });
     }
 
 }
